@@ -72,7 +72,7 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
          default: 95
   # Setup variables
   #
-  def initialize
+  def initialize(argv = ARGV)
     super
     @crit_lv = []
     @warn_lv = []
@@ -84,20 +84,17 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
 
   def filter_volumes(list)
     begin
-      if config[:lv]
-        return list.select { |l| config[:lv].include?(l.name) }
-      elsif config[:full_name]
-        return list.select { |l| config[:lv].include?(l.full_name) }
-      end
+      return list.select { |l| config[:lv].include?(l.name) } if config[:lv]
+      return list.select { |l| config[:full_name].include?(l.full_name) } if config[:full_name]
     rescue
-      unknown 'An error occured getting hte LVM info'
+      unknown 'An error occured getting the LVM info'
     end
     list
   end
 
   def check_usage(v)
     d_percent = v.data_percent.to_i
-    m_percent = v.metada_percent.to_i
+    m_percent = v.metadata_percent.to_i
 
     if d_percent >= config[:dcrit]
       @crit_lv << "#{v.full_name} data volume is #{d_percent}% used"
@@ -112,7 +109,6 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
     end
   end
 
-
   # Generate output
   #
   def check_output
@@ -123,9 +119,9 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
   #
   def run
     volumes = filter_volumes(logical_volumes)
-    volumes.each {|v| check_usage(v)}
+    volumes.each { |v| check_usage(v) }
     critical check_output unless @crit_lv.empty?
     warning check_output unless @warn_lv.empty?
-    ok "All logical volume data usage under #{config[:dwarn]}% and metadatau usage under #{config[:mwarn]}%"
+    ok "All logical volume data usage under #{config[:dwarn]}% and metadata usage under #{config[:mwarn]}%"
   end
 end

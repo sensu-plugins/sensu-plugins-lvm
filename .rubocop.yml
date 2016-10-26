@@ -28,3 +28,7 @@ RegexpLiteral:
 
 Style/Documentation:
   Enabled: false
+AllCops:
+  Exclude:
+    - 'test/**/*.rb'
+    - 'sensu-plugins-lvm.gemspec'
