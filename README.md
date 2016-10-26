@@ -8,6 +8,10 @@
 
 ## Functionality
 
+**check-lv-usage**
+
+Checks the usage on the logical volume.  Checks both data and metadata volumes associated with Physical Volume
+
 **check-vg-usage**
 
 Check volume group capacity based upon the gem do-ruby-lvm.
@@ -16,7 +20,9 @@ Check volume group capacity based upon the gem do-ruby-lvm.
 
 Output graphite metrics for volume group capacity and usage based upon the gem do-ruby-lvm.
 
+
 ## Files
+ * bin/check-lv-usage.rb
  * bin/check-vg-usage.rb
  * bin/metrics-vg-usage.rb
 
