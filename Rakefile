@@ -23,7 +23,7 @@ end
 
 desc 'Make all plugins executable'
 task :make_bin_executable do
-  `chmod -R +x bin/*`
+  `chmod -R +x bin/*.rb`
 end
 
 desc 'Test for binstubs'
