@@ -73,7 +73,7 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
   # Setup variables
   #
   def initialize(argv = ARGV)
-    super
+    super(argv)
     @crit_lv = []
     @warn_lv = []
   end
