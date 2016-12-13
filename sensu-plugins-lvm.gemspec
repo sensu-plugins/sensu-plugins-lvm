@@ -4,11 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'date'
 require_relative 'lib/sensu-plugins-lvm'
 
-# pvt_key = '~/.ssh/gem-private_key.pem'
-
 Gem::Specification.new do |s|
   s.authors                = ['Sensu-Plugins and contributors']
-  # s.cert_chain             = ['certs/sensu-plugins.pem']
   s.date                   = Date.today.to_s
   s.description            = 'Sensu plugins for LVM'
   s.email                  = '<sensu-users@googlegroups.com>'
