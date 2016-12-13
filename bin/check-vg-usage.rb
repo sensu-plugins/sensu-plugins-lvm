@@ -3,7 +3,7 @@
 #   check-vg-usage
 #
 # DESCRIPTION:
-#   Uses the di-ruby-lvm gem to get LVM volume group status
+#   Uses the chef-ruby-lvm gem to get LVM volume group status
 #
 # OUTPUT:
 #   plain text
@@ -13,7 +13,7 @@
 #
 # DEPENDENCIES:
 #   gem: sensu-plugin
-#   gem: di-ruby-lvm
+#   gem: chef-ruby-lvm
 #
 # USAGE:
 #

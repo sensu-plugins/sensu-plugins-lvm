@@ -4,7 +4,7 @@
 #   metrics-vg-usage
 #
 # DESCRIPTION:
-#   Uses the di-ruby-lvm gem to get LVM volume group statistics
+#   Uses the chef-ruby-lvm gem to get LVM volume group statistics
 #
 # OUTPUT:
 #   metric data
@@ -14,7 +14,7 @@
 #
 # DEPENDENCIES:
 #   gem: sensu-plugin
-#   gem: di-ruby-lvm
+#   gem: chef-ruby-lvm
 #
 # USAGE:
 #

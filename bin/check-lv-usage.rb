@@ -3,7 +3,7 @@
 #   check-lv-usage
 #
 # DESCRIPTION:
-#   Uses the di-ruby-lvm gem to get the Data% from LVS command
+#   Uses the chef-ruby-lvm gem to get the Data% from LVS command
 #
 # OUTPUT:
 #   plain text
@@ -13,7 +13,7 @@
 #
 # DEPENDENCIES:
 #   gem: sensu-plugin
-#   gem: di-ruby-lvm
+#   gem: chef-ruby-lvm
 #
 # USAGE:
 #  ./check-lv-usage.rb
