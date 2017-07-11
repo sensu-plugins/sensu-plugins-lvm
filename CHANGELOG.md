@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+### Added
+- Dependency of `chef-ruby-lvm-attrib`
+
+### Changed
+- Dependency of `chef-ruby-lvm` to newer version
 
 ## 0.0.3 - 2016-11-13
 ### Changed
