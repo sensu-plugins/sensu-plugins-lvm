@@ -8,6 +8,7 @@ rvm:
 - 2.1
 - 2.2
 - 2.3.0
+- 2.4.1
 notifications:
   email:
     recipients:
@@ -28,4 +29,7 @@ deploy:
     rvm: 2.1
     rvm: 2.2
     rvm: 2.3.0
+    rvm: 2.4.1
     repo: sensu-plugins/sensu-plugins-lvm
+  api_key:
+    secure: o5gLAyj6qJ/wrSivl5vGF7xBZPCCQzY0xKMSTdBCpUknza6dezPK97RdhitauibZ1snqACMOV4DrEVFsDLz4e9V0hFVYrezhif1KoxC/nR6lgsDKZdwxXzKtU+8ctKY10vWz2cQnkjMiltSO5J2vVlILszVIrPrs+X3q09LQKmUsumMPZTRVQtK5NVi4SPToeaIT/2IxNoDnJsJVRHn8qNcm15+TmkeErzYug3QQVJtaJFDj7+oPII+BvOz0j4pWM9NSznLSQuvb5UsE+OtJf48EVQj8itdrJJ+n3T7EqztEAU0m3kDVA63d79AzaHn/nQC9YgZijZijf2N6eSKbUskO7s1gOrqpIpN/dGLLtHPzghSIg2C2NyCo/6D/T98/SSVe4zGfIUOrAHjuYduIafB2D2Hoboj5Imyzl6dOZ/VqU1WSW7NdHNzilJ6YyNrkUcaoX9atx7nxJxPEGMP27jkqQZ8iHkOwAJbYTY1Li9FT5C0zX+xnkLeccfKxoEDtOaMuFWTgQAqLNGA/5VOS8apkZc19e9x2yZfF3JqlS93W2KeCVS0MEZo+dQarPRXJh3xmUIUfBKsJM5RxxmkLwvwd8eTBbxrAJ2b53dXfowk+Gjt7AJnAiRPNModytN36mkZuwfVyHKO+heDfTEjq7oEKJ5ZKcSWSuAfShEDcB4I=
