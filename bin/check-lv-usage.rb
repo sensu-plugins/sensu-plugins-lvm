@@ -83,6 +83,7 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
   end
 
   def filter_volumes(list)
+    unknown 'An error occured getting the LVM info: got empty list of volumes' if list.empty?
     begin
       return list.select { |l| config[:lv].include?(l.name) } if config[:lv]
       return list.select { |l| config[:full_name].include?(l.full_name) } if config[:full_name]
