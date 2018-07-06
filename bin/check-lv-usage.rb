@@ -1,4 +1,6 @@
 #! /usr/bin/env ruby
+# frozen_string_literal: false
+
 #
 #   check-lv-usage
 #
@@ -83,13 +85,11 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
   end
 
   def empty_volumes_msg
-    # NOTE: when we drop ruby < 2.3 support switch to <<~ and indent sanely
-    string = <<-HEREDOC
-    An error occured getting the LVM info: got empty list of volumes.
-    Check to ensure sensu has been configured with appropriate permissions.
-    On linux systems it will generally need to allow executing
+    <<~HEREDOC
+      An error occured getting the LVM info: got empty list of volumes.
+      Check to ensure sensu has been configured with appropriate permissions.
+      On linux systems it will generally need to allow executing `/sbin/lvm`
     HEREDOC
-    string.squeeze(' ')
   end
 
   def filter_volumes(list)

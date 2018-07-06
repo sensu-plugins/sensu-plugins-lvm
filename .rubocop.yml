@@ -29,6 +29,6 @@ RegexpLiteral:
 Style/Documentation:
   Enabled: false
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
     - 'test/**/*.rb'
-    - 'sensu-plugins-lvm.gemspec'

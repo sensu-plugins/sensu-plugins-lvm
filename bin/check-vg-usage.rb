@@ -1,4 +1,6 @@
 #! /usr/bin/env ruby
+# frozen_string_literal: false
+
 #
 #   check-vg-usage
 #
@@ -72,8 +74,8 @@ class CheckVg < Sensu::Plugin::Check::CLI
   def volume_groups
     LVM::LVM.new.volume_groups.each do |line|
       begin
-        next if config[:ignorevg] && config[:ignorevg].include?(line.name)
-        next if config[:ignorevgre] && config[:ignorevgre].match(line.name)
+        next if config[:ignorevg]&.include?(line.name)
+        next if config[:ignorevgre]&.match(line.name)
         next if config[:includevg] && !config[:includevg].include?(line.name)
       rescue StandardError
         unknown 'An error occured getting the LVM info'
@@ -107,7 +109,7 @@ class CheckVg < Sensu::Plugin::Check::CLI
       [1024, 'KiB'],
       [0, 'B']
     ].detect { |unit| bytes >= unit[0] }
-    if bytes > 0
+    if bytes.positive?
       bytes / units[0]
     else
       units[1]
