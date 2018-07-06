@@ -75,7 +75,7 @@ class CheckVg < Sensu::Plugin::Check::CLI
         next if config[:ignorevg] && config[:ignorevg].include?(line.name)
         next if config[:ignorevgre] && config[:ignorevgre].match(line.name)
         next if config[:includevg] && !config[:includevg].include?(line.name)
-      rescue
+      rescue StandardError
         unknown 'An error occured getting the LVM info'
       end
       check_volume_group(line)
@@ -99,9 +99,19 @@ class CheckVg < Sensu::Plugin::Check::CLI
     end
   end
 
-  def to_human(s)
-    unit = [[1_099_511_627_776, 'TiB'], [1_073_741_824, 'GiB'], [1_048_576, 'MiB'], [1024, 'KiB'], [0, 'B']].detect { |u| s >= u[0] }
-    "#{s > 0 ? s / unit[0] : s} #{unit[1]}"
+  def to_human(bytes)
+    units = [
+      [1_099_511_627_776, 'TiB'],
+      [1_073_741_824, 'GiB'],
+      [1_048_576, 'MiB'],
+      [1024, 'KiB'],
+      [0, 'B']
+    ].detect { |unit| bytes >= unit[0] }
+    if bytes > 0
+      bytes / units[0]
+    else
+      units[1]
+    end
   end
 
   # Generate output

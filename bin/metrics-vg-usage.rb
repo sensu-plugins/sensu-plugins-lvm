@@ -1,6 +1,4 @@
 #! /usr/bin/env ruby
-#  encoding: UTF-8
-
 #
 #   metrics-vg-usage
 #
@@ -64,7 +62,7 @@ class VgUsageMetrics < Sensu::Plugin::Metric::CLI::Graphite
         next if config[:ignorevg] && config[:ignorevg].include?(line.name)
         next if config[:ignorevgre] && config[:ignorevgre].match(line.name)
         next if config[:includevg] && !config[:includevg].include?(line.name)
-      rescue
+      rescue StandardError
         unknown 'An error occured getting the LVM info'
       end
       volume_group_metrics(line)
