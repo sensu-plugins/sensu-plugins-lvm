@@ -5,6 +5,23 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+### Breaking Changes
+- removed ruby `< 2.3` support (@majormoses)
+- bumped dependency of `sensu-plugin` to `~> 2.5` you can read about it [here](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v145---2017-03-07) (@majormoses)
+
+### Security
+- updated yard dependency to `~> 0.9.11` per: https://nvd.nist.gov/vuln/detail/CVE-2017-17042 (@majormoses)
+- updated rubocop dependency to `~> 0.51.0` per: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8418. (@majormoses)
+
+### Changed
+- appeased the cops (@majormoses)
+
+### Removed
+- gemnasium badge (@majormoses)
+
+### Added
+- slack badge (@majormoses)
+
 ## [1.0.1] - 2018-07-06
 ### Fixed
 - check-lv-usage.rb: emit an `unknown` with a useful message rather than a false `ok` when no volumes are found (@sys-ops)
