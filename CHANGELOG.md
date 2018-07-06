@@ -1,9 +1,15 @@
-#Change Log
+# Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+### Fixed
+- check-lv-usage.rb: emit an `unknown` with a useful message rather than a false `ok` when no volumes are found (@sys-ops)
+
+### Changed
+- general readability improvements and appeasing the cops (@majormoses)
 
 ## [1.0.0] - 2017-07-12
 ### Added
