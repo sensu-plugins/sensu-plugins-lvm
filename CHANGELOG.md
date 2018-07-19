@@ -5,6 +5,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+
+## [2.0.0] - 2018-07-18
 ### Breaking Changes
 - removed ruby `< 2.3` support (@majormoses)
 - bumped dependency of `sensu-plugin` to `~> 2.5` you can read about it [here](https://github.com/sensu-plugins/sensu-plugin/blob/master/CHANGELOG.md#v145---2017-03-07) (@majormoses)
@@ -53,7 +55,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-lvm/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-lvm/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/sensu-plugins/sensu-plugins-lvm/compare/1.0.1...2.0.0
 [1.0.1]: https://github.com/sensu-plugins/sensu-plugins-lvm/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-lvm/compare/0.0.4...1.0.0
 [0.0.4]: https://github.com/sensu-plugins/sensu-plugins-lvm/compare/0.0.3...0.0.4
