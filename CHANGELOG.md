@@ -5,6 +5,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+### Changed
+- appeased the cops (@majormoses)
 
 ## [2.0.0] - 2018-07-18
 ### Breaking Changes
