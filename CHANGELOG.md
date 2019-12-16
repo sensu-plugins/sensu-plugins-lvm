@@ -5,6 +5,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+### Added
+- Add sensu go bonsai asset (@danragnar)
+
 ### Changed
 - appeased the cops (@majormoses)
 
