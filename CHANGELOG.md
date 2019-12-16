@@ -7,6 +7,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ### Added
 - Add sensu go bonsai asset (@danragnar)
+- Bump bundler to 2.1
 
 ### Changed
 - appeased the cops (@majormoses)
