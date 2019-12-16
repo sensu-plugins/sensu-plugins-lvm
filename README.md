@@ -28,4 +28,10 @@ Output graphite metrics for volume group capacity and usage based upon the gem c
 
 ## Installation
 
+Sensu core:
+
 [Installation and Setup](http://sensu-plugins.io/docs/installation_instructions.html)
+
+Sensu go:
+
+[Installation of Sensu go asset](https://docs.sensu.io/sensu-go/latest/reference/assets/#sharing-an-asset-on-bonsai)
