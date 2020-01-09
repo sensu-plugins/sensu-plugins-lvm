@@ -72,6 +72,12 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
          description: 'Critical if PERCENT or more of logical metadata volume',
          proc: proc(&:to_i),
          default: 95
+
+  option :lvm_command,
+         short: '-m COMMAND',
+         long: '--command COMMAND',
+         description: 'Run this lvm command, e.g /bin/sudo /sbin/lvm'
+
   # Setup variables
   #
   def initialize(argv = ARGV)
@@ -81,7 +87,7 @@ class CheckLVUsage < Sensu::Plugin::Check::CLI
   end
 
   def logical_volumes
-    @logical_volumes ||= LVM::LVM.new.logical_volumes.list
+    @logical_volumes ||= config.key?(:lvm_command) ? LVM::LVM.new(command: config[:lvm_command]).logical_volumes.list : LVM::LVM.new.logical_volumes.list
   end
 
   def empty_volumes_msg

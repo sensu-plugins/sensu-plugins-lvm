@@ -61,6 +61,11 @@ class CheckVg < Sensu::Plugin::Check::CLI
          proc: proc(&:to_i),
          default: 95
 
+  option :lvm_command,
+         short: '-m COMMAND',
+         long: '--command COMMAND',
+         description: 'Run this lvm command, e.g /bin/sudo /sbin/lvm'
+
   # Setup variables
   #
   def initialize
@@ -72,7 +77,8 @@ class CheckVg < Sensu::Plugin::Check::CLI
   # Get group data
   #
   def volume_groups
-    LVM::LVM.new.volume_groups.each do |line|
+    vgs = config.key?(:lvm_command) ? LVM::LVM.new(command: config[:lvm_command]).volume_groups : LVM::LVM.new.volume_groups
+    vgs.each do |line|
       begin
         next if config[:ignorevg]&.include?(line.name)
         next if config[:ignorevgre]&.match(line.name)
