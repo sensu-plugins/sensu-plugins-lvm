@@ -5,6 +5,11 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+### Added
+- Add sensu go bonsai asset (@danragnar)
+- Bump bundler to 2.1
+- Allow to specify the LVM command to run
+
 ### Changed
 - appeased the cops (@majormoses)
 

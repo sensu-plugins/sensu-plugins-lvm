@@ -16,14 +16,24 @@ script:
 - bundle exec rake default
 - gem build sensu-plugins-lvm.gemspec
 - gem install sensu-plugins-lvm-*.gem
+before_deploy:
+  - bash -c "[ ! -d bonsai/ ] && git clone https://github.com/sensu/sensu-go-bonsai-asset.git bonsai || echo 'bonsai/ exists, skipping git clone'"
 deploy:
-  provider: rubygems
-  gem: sensu-plugins-lvm
-  on:
-    tags: true
-    all_branches: true
-    rvm: 2.3.0
-    rvm: 2.4.1
-    repo: sensu-plugins/sensu-plugins-lvm
-  api_key:
-    secure: o5gLAyj6qJ/wrSivl5vGF7xBZPCCQzY0xKMSTdBCpUknza6dezPK97RdhitauibZ1snqACMOV4DrEVFsDLz4e9V0hFVYrezhif1KoxC/nR6lgsDKZdwxXzKtU+8ctKY10vWz2cQnkjMiltSO5J2vVlILszVIrPrs+X3q09LQKmUsumMPZTRVQtK5NVi4SPToeaIT/2IxNoDnJsJVRHn8qNcm15+TmkeErzYug3QQVJtaJFDj7+oPII+BvOz0j4pWM9NSznLSQuvb5UsE+OtJf48EVQj8itdrJJ+n3T7EqztEAU0m3kDVA63d79AzaHn/nQC9YgZijZijf2N6eSKbUskO7s1gOrqpIpN/dGLLtHPzghSIg2C2NyCo/6D/T98/SSVe4zGfIUOrAHjuYduIafB2D2Hoboj5Imyzl6dOZ/VqU1WSW7NdHNzilJ6YyNrkUcaoX9atx7nxJxPEGMP27jkqQZ8iHkOwAJbYTY1Li9FT5C0zX+xnkLeccfKxoEDtOaMuFWTgQAqLNGA/5VOS8apkZc19e9x2yZfF3JqlS93W2KeCVS0MEZo+dQarPRXJh3xmUIUfBKsJM5RxxmkLwvwd8eTBbxrAJ2b53dXfowk+Gjt7AJnAiRPNModytN36mkZuwfVyHKO+heDfTEjq7oEKJ5ZKcSWSuAfShEDcB4I=
+  - provider: script
+    script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-lvm
+    skip_cleanup: true
+    on:
+      tags: true
+      all_branches: true
+      rvm: 2.3.0
+      rvm: 2.4.1
+  - provider: rubygems
+    gem: sensu-plugins-lvm
+    on:
+      tags: true
+      all_branches: true
+      rvm: 2.3.0
+      rvm: 2.4.1
+      repo: sensu-plugins/sensu-plugins-lvm
+    api_key:
+      secure: o5gLAyj6qJ/wrSivl5vGF7xBZPCCQzY0xKMSTdBCpUknza6dezPK97RdhitauibZ1snqACMOV4DrEVFsDLz4e9V0hFVYrezhif1KoxC/nR6lgsDKZdwxXzKtU+8ctKY10vWz2cQnkjMiltSO5J2vVlILszVIrPrs+X3q09LQKmUsumMPZTRVQtK5NVi4SPToeaIT/2IxNoDnJsJVRHn8qNcm15+TmkeErzYug3QQVJtaJFDj7+oPII+BvOz0j4pWM9NSznLSQuvb5UsE+OtJf48EVQj8itdrJJ+n3T7EqztEAU0m3kDVA63d79AzaHn/nQC9YgZijZijf2N6eSKbUskO7s1gOrqpIpN/dGLLtHPzghSIg2C2NyCo/6D/T98/SSVe4zGfIUOrAHjuYduIafB2D2Hoboj5Imyzl6dOZ/VqU1WSW7NdHNzilJ6YyNrkUcaoX9atx7nxJxPEGMP27jkqQZ8iHkOwAJbYTY1Li9FT5C0zX+xnkLeccfKxoEDtOaMuFWTgQAqLNGA/5VOS8apkZc19e9x2yZfF3JqlS93W2KeCVS0MEZo+dQarPRXJh3xmUIUfBKsJM5RxxmkLwvwd8eTBbxrAJ2b53dXfowk+Gjt7AJnAiRPNModytN36mkZuwfVyHKO+heDfTEjq7oEKJ5ZKcSWSuAfShEDcB4I=
