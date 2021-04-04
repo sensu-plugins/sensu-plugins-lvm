@@ -31,7 +31,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsLvm::Version::VER_STRING
 
-  s.add_runtime_dependency 'chef-ruby-lvm', '~> 0.3.0'
+  s.add_runtime_dependency 'chef-ruby-lvm', '>= 0.3', '< 0.5'
   s.add_runtime_dependency 'chef-ruby-lvm-attrib', '>= 0.2.1', '< 0.4.0'
   s.add_runtime_dependency 'sensu-plugin', '>= 2.5', '< 5.0'
 
